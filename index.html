@@ -6,6 +6,7 @@
     <title>Shivalik Homoeopathic Clinic — Dr. P Gupta | Best Homoeopath in Gandhi Nagar, Jammu</title>
     <meta name="description" content="Shivalik Homoeopathic Clinic — Dr. P Gupta, trusted homoeopath in Gandhi Nagar, Jammu. 15+ years of experience in natural, holistic healing. Book your consultation today.">
     <meta name="keywords" content="homoeopathy, homeopathy, homoeopathic clinic Jammu, Dr P Gupta, natural healing Gandhi Nagar, holistic treatment Jammu, homoeopath Gandhi Nagar">
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
@@ -34,7 +35,7 @@
             --max-width: 1200px;
             --header-height: 80px;
             --mobile-bar-height: 62px;
-            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -64,22 +65,30 @@
 
         .container { max-width: var(--max-width); margin: 0 auto; padding: 0 32px; }
         .section-padding { padding: 90px 0; }
-        @media (max-width: 768px) { .section-padding { padding: 60px 0; } }
+        @media (max-width: 768px) { .section-padding { padding: 70px 0; } }
 
-        /* Animation Keyframes */
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes fadeInScale { from { opacity: 0; transform: scale(0.96); } to { opacity: 1; transform: scale(1); } }
-        @keyframes softPulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.05); } }
-        .animate-on-scroll { opacity: 0; transition: opacity 0.8s ease, transform 0.8s ease; transform: translateY(25px); }
-        .animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
+        /* --- Animations --- */
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInScale { from { opacity: 0; transform: scale(0.94); } to { opacity: 1; transform: scale(1); } }
+        @keyframes softPulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.08); } }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
 
-        /* Buttons */
+        .animate-on-scroll {
+            opacity: 0;
+            transition: opacity 0.8s ease, transform 0.8s ease;
+            transform: translateY(30px);
+        }
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Buttons --- */
         .btn {
             display: inline-flex; align-items: center; justify-content: center; gap: 8px;
             font-weight: 600; font-size: 0.95rem; padding: 14px 30px; border-radius: 50px;
             cursor: pointer; transition: all 0.3s ease; white-space: nowrap;
             border: 2px solid transparent; letter-spacing: 0.01em; text-decoration: none;
-            position: relative; overflow: hidden;
         }
         .btn-primary { background: var(--primary); color: white; border-color: var(--primary); box-shadow: 0 6px 18px rgba(26,92,53,0.2); }
         .btn-primary:hover { background: var(--primary-light); transform: translateY(-3px); box-shadow: 0 10px 28px rgba(26,92,53,0.3); }
@@ -91,15 +100,17 @@
         .btn-whatsapp { background: #25D366; color: white; border-color: #25D366; }
         .btn-red:hover, .btn-whatsapp:hover { filter: brightness(1.1); transform: translateY(-2px); }
 
-        /* Header */
+        /* --- Header --- */
         .site-header {
             position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-            background: transparent; transition: all 0.3s ease; height: var(--header-height);
+            background: transparent; transition: all 0.4s ease; height: var(--header-height);
             display: flex; align-items: center;
         }
         .site-header.scrolled {
-            background: rgba(255,255,255,0.92); backdrop-filter: blur(14px);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05); border-bottom: 1px solid var(--border-light);
+            background: rgba(255,255,255,0.9);
+            backdrop-filter: blur(16px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border-bottom: 1px solid var(--border-light);
         }
         .header-inner {
             display: flex; align-items: center; justify-content: space-between;
@@ -108,25 +119,15 @@
         .logo {
             display: flex; align-items: center; gap: 10px;
             font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.5rem;
-            color: var(--primary); text-decoration: none; letter-spacing: -0.01em;
-            transition: color 0.2s;
+            color: var(--primary); text-decoration: none;
         }
         .logo-icon {
             width: 42px; height: 42px; background: #e6f0da; border-radius: 14px;
             display: flex; align-items: center; justify-content: center; font-size: 1.4rem;
         }
         .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
-        .nav-links a {
-            color: var(--text); font-weight: 500; font-size: 0.95rem;
-            transition: color 0.3s; position: relative;
-        }
+        .nav-links a { color: var(--text); font-weight: 500; font-size: 0.95rem; transition: color 0.3s; }
         .nav-links a.active, .nav-links a:hover { color: var(--primary); }
-        .nav-links a::after {
-            content: ''; position: absolute; bottom: -4px; left: 0;
-            width: 0; height: 2px; background: var(--primary);
-            transition: width 0.3s; border-radius: 2px;
-        }
-        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
         .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 6px; flex-direction: column; gap: 5px; z-index: 1001; }
         .hamburger span { display: block; width: 24px; height: 2.5px; background: var(--text); border-radius: 3px; transition: all 0.3s; }
         .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
@@ -142,51 +143,49 @@
             .nav-links.open { right: 0; }
         }
 
-        /* Hero */
+        /* --- Hero / Cover Image --- */
         .hero {
-            min-height: 100vh; display: flex; align-items: center;
-            background: linear-gradient(160deg, #f2f8ed 0%, #e3f0d8 30%, #f9fcf7 60%, #fefdfa 100%);
-            position: relative; overflow: hidden;
+            min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden;
+            background: linear-gradient(165deg, #f2f8ed 0%, #e3f0d8 30%, #f9fcf7 65%, #fefdfa 100%);
         }
-        .hero::after {
-            content: ''; position: absolute; top: -120px; right: -80px; width: 500px; height: 500px;
-            border-radius: 50%; background: radial-gradient(circle, rgba(26,92,53,0.06) 0%, transparent 70%);
+        .hero::before {
+            content: ''; position: absolute; top: -150px; right: -100px; width: 600px; height: 600px;
+            border-radius: 50%; background: radial-gradient(circle, rgba(26,92,53,0.04) 0%, transparent 70%);
             animation: float 8s ease-in-out infinite alternate;
+            pointer-events: none;
         }
-        @keyframes float { 0% { transform: translateY(0); } 100% { transform: translateY(-25px); } }
         .hero-inner {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; position: relative; z-index: 2;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; position: relative; z-index: 2;
         }
-        .hero-content { display: flex; flex-direction: column; gap: 24px; }
+        .hero-content { display: flex; flex-direction: column; gap: 24px; animation: fadeInUp 0.8s ease forwards; }
         .hero-badge {
             display: inline-flex; align-items: center; gap: 8px; background: white;
             border: 1px solid var(--border-light); padding: 8px 20px; border-radius: 40px;
             font-size: 0.85rem; font-weight: 500; color: var(--text-secondary); width: fit-content;
-            animation: fadeInUp 0.8s ease forwards;
         }
-        .hero h1 { font-weight: 700; }
         .hero h1 em { font-style: italic; color: var(--primary); }
         .hero-subline { font-size: 1.1rem; color: var(--text-muted); max-width: 460px; }
         .hero-ctas { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 8px; }
         .hero-rating { display: flex; align-items: center; gap: 8px; font-size: 0.9rem; color: var(--text-muted); margin-top: 8px; }
-        .hero-image-wrap { display: flex; justify-content: center; }
-        .hero-image {
-            width: 100%; max-width: 430px; aspect-ratio: 3/4; border-radius: var(--radius-xl);
+        .hero-cover-image {
+            width: 100%; max-width: 480px; aspect-ratio: 4/4; border-radius: var(--radius-xl);
             background: linear-gradient(140deg, #dce8d3, #c4d8b0);
             display: flex; align-items: center; justify-content: center; font-size: 8rem;
-            box-shadow: var(--shadow-lg); transition: transform 0.4s;
-            animation: fadeInScale 1s ease;
+            box-shadow: var(--shadow-lg); animation: fadeInScale 1s ease, float 6s ease-in-out infinite;
+            position: relative;
         }
-        .hero-image:hover { transform: scale(1.03); }
+        .hero-cover-image::after {
+            content: '🌿'; position: absolute; bottom: 20px; right: 20px; font-size: 3rem; opacity: 0.8;
+        }
         @media (max-width: 768px) {
-            .hero-inner { grid-template-columns: 1fr; text-align: center; gap: 32px; }
+            .hero-inner { grid-template-columns: 1fr; text-align: center; gap: 40px; }
             .hero-content { align-items: center; }
             .hero-subline { max-width: 100%; }
-            .hero-image { max-width: 280px; font-size: 5rem; }
-            .hero { min-height: auto; padding-top: 120px; padding-bottom: 50px; }
+            .hero-cover-image { max-width: 280px; font-size: 5rem; }
+            .hero { min-height: auto; padding-top: 140px; padding-bottom: 60px; }
         }
 
-        /* Trust Bar */
+        /* --- Trust Bar --- */
         .trust-bar {
             background: var(--bg-white); border-top: 1px solid var(--border-light);
             border-bottom: 1px solid var(--border-light); padding: 24px 0;
@@ -196,46 +195,43 @@
             font-weight: 500; color: var(--text-secondary); font-size: 0.95rem;
         }
         .trust-item { display: flex; align-items: center; gap: 10px; }
-        .trust-number { font-weight: 700; color: var(--text); }
+        .trust-number { font-weight: 700; color: var(--text); font-size: 1.2rem; }
 
-        /* Benefits */
+        /* --- Section Headers --- */
+        .section-header {
+            text-align: center; max-width: 640px; margin: 0 auto 60px;
+        }
+        .section-tag {
+            display: inline-block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.08em; color: var(--primary); background: #e6f0da; padding: 6px 16px;
+            border-radius: 40px; margin-bottom: 16px;
+        }
+
+        /* --- Benefits Grid --- */
         .benefits-grid {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 32px; text-align: center;
         }
         .benefit-card {
             background: white; border-radius: var(--radius-lg); padding: 44px 24px;
             border: 1px solid var(--border-light); box-shadow: var(--shadow-xs);
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
         }
-        .benefit-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-md); }
-        .benefit-icon { font-size: 3rem; margin-bottom: 20px; display: block; }
+        .benefit-card:hover { transform: translateY(-12px); box-shadow: var(--shadow-lg); }
+        .benefit-icon { font-size: 3.5rem; margin-bottom: 20px; display: block; }
 
-        /* Services */
+        /* --- Services Grid --- */
         .services-grid {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;
         }
         .service-card {
             background: white; border-radius: var(--radius-lg); padding: 36px 24px;
             text-align: center; border: 1px solid var(--border-light);
-            transition: all 0.3s ease; cursor: pointer;
+            transition: all 0.4s ease; cursor: pointer;
         }
-        .service-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-lg); border-color: #cfddc6; }
-        .service-icon { font-size: 2.8rem; margin-bottom: 18px; display: block; }
+        .service-card:hover { transform: translateY(-12px); box-shadow: var(--shadow-lg); border-color: #cfddc6; }
+        .service-icon { font-size: 3rem; margin-bottom: 18px; display: block; }
 
-        /* Testimonials */
-        .testimonials-carousel {
-            display: flex; gap: 28px; overflow-x: auto; scroll-snap-type: x mandatory;
-            scroll-behavior: smooth; padding-bottom: 16px; scrollbar-width: none;
-        }
-        .testimonial-card {
-            flex: 0 0 clamp(300px, 45%, 440px); scroll-snap-align: start;
-            background: white; border-radius: var(--radius-lg); padding: 36px 28px;
-            border: 1px solid var(--border-light); box-shadow: var(--shadow-xs);
-            transition: all 0.3s;
-        }
-        .testimonial-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
-
-        /* Founder */
+        /* --- Founder Section --- */
         .founder-grid {
             display: grid; grid-template-columns: auto 1fr; gap: 52px; align-items: center;
             background: white; border-radius: var(--radius-xl); padding: 48px;
@@ -248,17 +244,29 @@
         }
         @media (max-width: 768px) { .founder-grid { grid-template-columns: 1fr; text-align: center; padding: 32px; } .founder-photo { margin: 0 auto; } }
 
-        /* Credentials */
+        /* --- Credentials --- */
         .credentials-grid {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 24px; text-align: center;
         }
         .credential-card {
             background: white; border-radius: var(--radius-md); padding: 30px 16px;
-            border: 1px solid var(--border-light); transition: all 0.3s;
+            border: 1px solid var(--border-light); transition: all 0.4s ease;
         }
-        .credential-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+        .credential-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-md); }
 
-        /* Offer */
+        /* --- Testimonials Stacked --- */
+        .testimonials-stacked {
+            display: flex; flex-direction: column; gap: 20px; max-width: 800px; margin: 0 auto;
+        }
+        .testimonial-card {
+            background: white; border-radius: var(--radius-lg); padding: 32px 28px;
+            border: 1px solid var(--border-light); box-shadow: var(--shadow-xs);
+            transition: all 0.4s ease;
+        }
+        .testimonial-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+        .testimonial-stars { color: var(--accent); font-size: 1.1rem; margin-bottom: 8px; }
+
+        /* --- Offer Section --- */
         .special-offer-section {
             background: white; border: 2px dashed var(--accent); border-radius: var(--radius-xl);
             padding: 56px 40px; position: relative; overflow: hidden;
@@ -270,7 +278,7 @@
         }
         .offer-form input:focus { border-color: var(--primary); outline: none; box-shadow: 0 0 0 3px rgba(26,92,53,0.08); }
 
-        /* Contact */
+        /* --- Contact & Map --- */
         .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
         .map-embed {
             width: 100%; aspect-ratio: 4/3; border-radius: var(--radius-xl);
@@ -278,44 +286,62 @@
         }
         @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } }
 
-        /* FAQ */
+        /* --- FAQ Accordion (5 items) --- */
+        .faq-container {
+            max-width: 800px; margin: 0 auto;
+        }
         .faq-item {
-            background: white; border: 1px solid var(--border-light); border-radius: var(--radius-sm);
-            margin-bottom: 12px; overflow: hidden; transition: all 0.3s;
+            background: white; border: 1px solid var(--border-light); border-radius: var(--radius-md);
+            margin-bottom: 16px; overflow: hidden; transition: all 0.4s ease;
+            box-shadow: var(--shadow-xs);
         }
-        .faq-item.open { box-shadow: var(--shadow-sm); border-color: #cfddc6; }
+        .faq-item:hover { border-color: #cfddc6; }
+        .faq-item.open { box-shadow: var(--shadow-md); border-color: var(--primary-light); }
         .faq-question {
-            width: 100%; padding: 20px; text-align: left; font-weight: 600; background: none; border: none;
+            width: 100%; padding: 22px 28px; text-align: left; font-weight: 600; background: none; border: none;
             display: flex; justify-content: space-between; align-items: center; cursor: pointer;
+            font-size: 1rem; color: var(--text); transition: background 0.2s;
         }
-        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
-        .faq-item.open .faq-answer { max-height: 200px; }
+        .faq-question:hover { background: #f9fbf8; }
+        .faq-arrow {
+            font-size: 1.2rem; transition: transform 0.4s ease; color: var(--primary); font-weight: 700;
+            background: #e6f0da; width: 32px; height: 32px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .faq-item.open .faq-arrow { transform: rotate(45deg); }
+        .faq-answer {
+            max-height: 0; overflow: hidden; transition: max-height 0.5s ease, padding 0.5s ease;
+            background: #fcfdfa;
+        }
+        .faq-item.open .faq-answer { max-height: 300px; }
+        .faq-answer-inner { padding: 0 28px 24px; color: var(--text-secondary); line-height: 1.7; }
 
-        /* Mobile CTA */
+        /* --- Mobile Sticky CTA --- */
         .mobile-cta-bar { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 998; height: var(--mobile-bar-height); box-shadow: 0 -4px 16px rgba(0,0,0,0.12); }
         .mobile-cta-inner { display: flex; height: 100%; }
         .mobile-cta-btn { flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px; font-weight: 600; font-size: 0.95rem; color: white; text-decoration: none; }
         @media (max-width: 768px) { .mobile-cta-bar { display: block; } body { padding-bottom: var(--mobile-bar-height); } }
 
-        /* Modal */
+        /* --- Modal --- */
         .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); backdrop-filter: blur(6px); z-index: 2000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
         .modal-overlay.show { opacity: 1; pointer-events: auto; }
         .modal-popup { background: white; border-radius: 32px; padding: 44px 36px; max-width: 440px; width: 90%; text-align: center; box-shadow: var(--shadow-lg); animation: fadeInScale 0.3s ease; position: relative; }
         .modal-close { position: absolute; top: 16px; right: 20px; background: none; border: none; font-size: 1.4rem; cursor: pointer; color: var(--text-muted); }
 
-        /* Footer */
+        /* --- Footer --- */
         .site-footer { background: #0f110e; color: rgba(255,255,255,0.7); padding: 70px 0 30px; }
         .footer-grid { display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr; gap: 40px; }
         @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
 
-        .whatsapp-float-desktop { position: fixed; bottom: 32px; right: 32px; z-index: 997; width: 58px; height: 58px; border-radius: 50%; background: #25D366; color: white; display: flex; align-items: center; justify-content: center; font-size: 1.7rem; box-shadow: 0 8px 24px rgba(37,211,102,0.5); transition: transform 0.3s; animation: softPulse 2.5s infinite; }
+        .whatsapp-float-desktop { position: fixed; bottom: 32px; right: 32px; z-index: 997; width: 58px; height: 58px; border-radius: 50%; background: #25D366; color: white; display: flex; align-items: center; justify-content: center; font-size: 1.7rem; box-shadow: 0 8px 24px rgba(37,211,102,0.5); animation: softPulse 2.5s infinite; transition: transform 0.3s; }
         @media (max-width: 768px) { .whatsapp-float-desktop { display: none; } }
     </style>
 </head>
 <body>
+    <!-- Header -->
     <header class="site-header" id="siteHeader">
         <div class="header-inner">
-            <a href="#" class="logo"><span class="logo-icon">🌿</span> Shivalik Homoeopathic Clinic</a>
+            <a href="#" class="logo"><span class="logo-icon">🌿</span> Shivalik Clinic</a>
             <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
             <nav><ul class="nav-links" id="navLinks">
                 <li><a href="#home" class="active">Home</a></li>
@@ -328,52 +354,56 @@
     </header>
 
     <main id="home">
+        <!-- Hero / Cover Image Section -->
         <section class="hero">
             <div class="container hero-inner">
                 <div class="hero-content">
                     <span class="hero-badge">📍 Serving Gandhi Nagar, Jammu</span>
                     <h1>Gentle Healing, <em>Lasting</em> Wellness</h1>
-                    <p class="hero-subline">Trusted homoeopathic care by <strong>Dr. P Gupta</strong> — 15+ years of experience at Shivalik Homoeopathic Clinic.</p>
+                    <p class="hero-subline">Trusted homoeopathic care by <strong>Dr. P Gupta</strong>. 15+ years of restoring health naturally at Shivalik Homoeopathic Clinic.</p>
                     <div class="hero-ctas">
                         <a href="#" class="btn btn-accent booking-trigger">📅 Book a Consultation</a>
                         <a href="#services" class="btn btn-outline">Explore Treatments</a>
                     </div>
                     <div class="hero-rating">★★★★★ <strong>4.9/5</strong> — 500+ Happy Patients</div>
                 </div>
-                <div class="hero-image-wrap"><div class="hero-image">👨‍⚕️</div></div>
+                <div class="hero-cover-image" aria-label="Dr. P Gupta at Shivalik Clinic">👨‍⚕️</div>
             </div>
         </section>
 
+        <!-- Trust Bar -->
         <section class="trust-bar">
             <div class="container trust-bar-inner">
-                <div class="trust-item"><span>⏳</span> <span class="trust-number">15+</span> Years Experience</div>
-                <div class="trust-item"><span>👥</span> <span class="trust-number">10,000+</span> Patients Treated</div>
-                <div class="trust-item"><span>🎓</span> BHMS, MD (Homoeopathy)</div>
-                <div class="trust-item"><span>🏛️</span> Registered with CCH</div>
+                <div class="trust-item"><span>⏳</span> <span class="trust-number">15+</span> Years Exp.</div>
+                <div class="trust-item"><span>👥</span> <span class="trust-number">10,000+</span> Patients</div>
+                <div class="trust-item"><span>🎓</span> BHMS, MD</div>
+                <div class="trust-item"><span>🏛️</span> CCH Registered</div>
                 <div class="trust-item"><span>★★★★★</span> 4.9 Rating</div>
             </div>
         </section>
 
+        <!-- Benefits -->
         <section class="section-padding">
             <div class="container">
-                <div class="section-header animate-on-scroll" style="text-align:center;max-width:640px;margin:0 auto 52px;">
-                    <span class="section-tag" style="display:inline-block;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--primary);background:#e6f0da;padding:6px 16px;border-radius:40px;margin-bottom:16px;">Why Choose Us</span>
+                <div class="section-header animate-on-scroll">
+                    <span class="section-tag">Why Choose Us</span>
                     <h2>The Shivalik Difference</h2>
-                    <p style="color:var(--text-muted);">Traditional wisdom, modern care — personalised for you.</p>
+                    <p>Personalised, natural care that treats the root cause, not just the symptoms.</p>
                 </div>
                 <div class="benefits-grid">
-                    <div class="benefit-card animate-on-scroll"><span class="benefit-icon">🎯</span><h3>Personalised Treatment</h3><p>Tailored remedies for your unique physical and emotional constitution.</p></div>
-                    <div class="benefit-card animate-on-scroll"><span class="benefit-icon">🍃</span><h3>100% Natural & Safe</h3><p>Non-toxic, zero side effects, safe for all ages.</p></div>
-                    <div class="benefit-card animate-on-scroll"><span class="benefit-icon">✅</span><h3>Proven Results</h3><p>Lasting relief for chronic conditions where conventional methods fell short.</p></div>
-                    <div class="benefit-card animate-on-scroll"><span class="benefit-icon">🤝</span><h3>Compassionate Care</h3><p>We listen deeply and support you at every step of your healing journey.</p></div>
+                    <div class="benefit-card animate-on-scroll"><span class="benefit-icon">🎯</span><h3>Personalised</h3><p>Unique remedies tailored to your constitution.</p></div>
+                    <div class="benefit-card animate-on-scroll"><span class="benefit-icon">🍃</span><h3>100% Natural</h3><p>Safe, non-toxic, zero side effects.</p></div>
+                    <div class="benefit-card animate-on-scroll"><span class="benefit-icon">✅</span><h3>Proven Results</h3><p>Lasting relief for chronic conditions.</p></div>
+                    <div class="benefit-card animate-on-scroll"><span class="benefit-icon">🤝</span><h3>Compassionate</h3><p>We listen deeply and support you fully.</p></div>
                 </div>
             </div>
         </section>
 
+        <!-- Services -->
         <section class="section-padding" id="services" style="background:white;">
             <div class="container">
-                <div class="section-header animate-on-scroll" style="text-align:center;max-width:640px;margin:0 auto 52px;">
-                    <span class="section-tag" style="display:inline-block;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--primary);background:#e6f0da;padding:6px 16px;border-radius:40px;margin-bottom:16px;">What We Treat</span>
+                <div class="section-header animate-on-scroll">
+                    <span class="section-tag">What We Treat</span>
                     <h2>Conditions We Specialise In</h2>
                 </div>
                 <div class="services-grid">
@@ -387,30 +417,16 @@
             </div>
         </section>
 
-        <section class="section-padding">
-            <div class="container">
-                <div class="section-header animate-on-scroll" style="text-align:center;max-width:640px;margin:0 auto 52px;">
-                    <span class="section-tag" style="display:inline-block;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--primary);background:#e6f0da;padding:6px 16px;border-radius:40px;margin-bottom:16px;">Patient Stories</span>
-                    <h2>What Our Patients Say</h2>
-                </div>
-                <div class="testimonials-carousel" id="testimonialCarousel">
-                    <div class="testimonial-card"><div>★★★★★</div><p>"After 8 years of eczema, Dr. Gupta gave me lasting relief."</p><div><strong>Ritu Sharma</strong> — Jammu</div></div>
-                    <div class="testimonial-card"><div>★★★★★</div><p>"My daughter's asthma is so much better. Grateful."</p><div><strong>Amit Kapoor</strong></div></div>
-                    <div class="testimonial-card"><div>★★★★★</div><p>"Anxiety under control, sleeping well. Best decision."</p><div><strong>Sanjana Gupta</strong></div></div>
-                    <div class="testimonial-card"><div>★★★★★</div><p>"Joint pain reduced by 80% in 3 months. Wonderful."</p><div><strong>Rajiv Mehta</strong></div></div>
-                </div>
-            </div>
-        </section>
-
+        <!-- Founder -->
         <section class="section-padding" id="about">
             <div class="container">
                 <div class="founder-grid animate-on-scroll">
                     <div class="founder-photo">👨‍⚕️</div>
                     <div>
-                        <span class="section-tag" style="display:inline-block;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--primary);background:#e6f0da;padding:6px 16px;border-radius:40px;margin-bottom:14px;">Meet Your Doctor</span>
+                        <span class="section-tag">Meet Your Doctor</span>
                         <h2>Dr. P Gupta</h2>
-                        <p style="font-weight:600;color:var(--primary);margin:8px 0;">BHMS, MD (Homoeopathy) • 15+ Years of Practice</p>
-                        <p>Founder of Shivalik Homoeopathic Clinic in Gandhi Nagar, Jammu. Dr. Gupta has successfully treated thousands of patients using classical homoeopathy, focusing on chronic conditions that conventional medicine couldn't resolve.</p>
+                        <p style="font-weight:600;color:var(--primary);margin:8px 0;">BHMS, MD (Homoeopathy) • 15+ Years</p>
+                        <p>Founder of Shivalik Homoeopathic Clinic, Gandhi Nagar, Jammu. Dr. Gupta has treated thousands using classical homoeopathy, specializing in chronic conditions.</p>
                         <blockquote style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.15rem;color:var(--primary);border-left:4px solid var(--accent);padding-left:16px;margin:18px 0;">“True healing begins when we treat the person, not just the symptoms.”</blockquote>
                         <a href="#" class="btn btn-outline booking-trigger">Book Appointment →</a>
                     </div>
@@ -418,12 +434,10 @@
             </div>
         </section>
 
+        <!-- Credentials -->
         <section class="section-padding" style="background:#f4f9f0;">
             <div class="container">
-                <div class="section-header animate-on-scroll" style="text-align:center;max-width:640px;margin:0 auto 52px;">
-                    <span class="section-tag" style="display:inline-block;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--primary);background:#e6f0da;padding:6px 16px;border-radius:40px;margin-bottom:16px;">Credentials</span>
-                    <h2>Certifications & Affiliations</h2>
-                </div>
+                <div class="section-header animate-on-scroll"><span class="section-tag">Credentials</span><h2>Certifications & Affiliations</h2></div>
                 <div class="credentials-grid">
                     <div class="credential-card animate-on-scroll"><span style="font-size:2.2rem;">🏛️</span><h4>CCH Registered</h4></div>
                     <div class="credential-card animate-on-scroll"><span style="font-size:2.2rem;">🎓</span><h4>MD Homoeopathy</h4></div>
@@ -434,59 +448,107 @@
             </div>
         </section>
 
+        <!-- Testimonials - 4 Reviews Stacked -->
+        <section class="section-padding">
+            <div class="container">
+                <div class="section-header animate-on-scroll">
+                    <span class="section-tag">Patient Stories</span>
+                    <h2>What Our Patients Say</h2>
+                </div>
+                <div class="testimonials-stacked">
+                    <div class="testimonial-card animate-on-scroll">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p>"After 8 years of eczema, Dr. Gupta's treatment was the only thing that gave me lasting relief. My skin is clearer than it's been in a decade."</p>
+                        <div><strong>Ritu Sharma</strong> — Jammu</div>
+                    </div>
+                    <div class="testimonial-card animate-on-scroll">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p>"Dr. Gupta is compassionate, thorough, and incredibly knowledgeable. My daughter's asthma attacks have reduced significantly."</p>
+                        <div><strong>Amit Kapoor</strong> — Gandhi Nagar</div>
+                    </div>
+                    <div class="testimonial-card animate-on-scroll">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p>"I was sceptical at first but the results speak for themselves. My anxiety is under control and I sleep better than ever."</p>
+                        <div><strong>Sanjana Gupta</strong> — Jammu</div>
+                    </div>
+                    <div class="testimonial-card animate-on-scroll">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p>"The personalised attention is unmatched. Dr. Gupta truly listens and the remedies work gently but effectively. My joint pain is 80% better."</p>
+                        <div><strong>Rajiv Mehta</strong> — Gandhi Nagar</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Special Offer -->
         <section class="section-padding">
             <div class="container">
                 <div class="special-offer-section animate-on-scroll">
-                    <div style="text-align:center;max-width:640px;margin:0 auto 40px;">
-                        <span class="section-tag" style="display:inline-block;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--accent);background:#fff5e0;padding:6px 16px;border-radius:40px;margin-bottom:16px;">Limited Offer</span>
+                    <div class="section-header">
+                        <span class="section-tag">Limited Offer</span>
                         <h2>Free 15‑Minute Phone Consult</h2>
-                        <p style="color:var(--text-muted);">Speak directly with Dr. Gupta — no commitment, just honest advice.</p>
                     </div>
                     <form class="offer-form" id="offerForm" style="max-width:440px;margin:0 auto;">
                         <input type="text" placeholder="Your Full Name" id="offerName" required>
                         <input type="tel" placeholder="Your WhatsApp Number" id="offerWhatsApp" required>
                         <button type="submit" class="btn btn-accent" style="width:100%">💬 Get Free Consult on WhatsApp</button>
-                        <p style="font-size:0.75rem;text-align:center;margin-top:8px;color:var(--text-muted);">🔒 100% private. We respond within 2 hours.</p>
+                        <p style="font-size:0.75rem;text-align:center;margin-top:8px;">🔒 100% private. Response within 2 hours.</p>
                     </form>
-                    <p style="text-align:center;margin-top:20px;">📞 Or call us directly: <a href="tel:+917780814739"><strong>+91 7780814739</strong></a></p>
+                    <p style="text-align:center;margin-top:20px;">📞 Or call: <a href="tel:+917780814739"><strong>+91 7780814739</strong></a></p>
                 </div>
             </div>
         </section>
 
+        <!-- Contact & Map -->
         <section class="section-padding" id="contact-section">
             <div class="container">
-                <div class="section-header animate-on-scroll" style="text-align:center;max-width:640px;margin:0 auto 52px;">
-                    <span class="section-tag" style="display:inline-block;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--primary);background:#e6f0da;padding:6px 16px;border-radius:40px;margin-bottom:16px;">Visit Us</span>
-                    <h2>Contact & Location</h2>
-                </div>
+                <div class="section-header animate-on-scroll"><span class="section-tag">Visit Us</span><h2>Contact & Location</h2></div>
                 <div class="contact-grid animate-on-scroll">
                     <div style="display:flex;flex-direction:column;gap:16px;">
-                        <p><strong>📍 Address:</strong><br>Shivalik Homoeopathic Clinic, Gandhi Nagar, Jammu — 180004</p>
+                        <p><strong>📍 Address:</strong><br>Shivalik Homoeopathic Clinic, Gandhi Nagar, Jammu</p>
                         <p><strong>📞 Call:</strong> <a href="tel:+917780814739">+91 7780814739</a></p>
                         <p><strong>💬 WhatsApp:</strong> <a href="https://wa.me/917780814739">+91 7780814739</a></p>
                         <p><strong>🕐 Hours:</strong><br>Mon–Sat: 9:00 AM – 7:00 PM<br>Sun: 10:00 AM – 2:00 PM</p>
                     </div>
-                    <div class="map-embed"><iframe src="https://maps.google.com/maps?q=Gandhi+Nagar+Jammu&output=embed" allowfullscreen loading="lazy" title="Clinic location"></iframe></div>
+                    <div class="map-embed"><iframe src="https://maps.google.com/maps?q=Gandhi+Nagar+Jammu&output=embed" allowfullscreen loading="lazy" title="Clinic location in Gandhi Nagar, Jammu"></iframe></div>
                 </div>
             </div>
         </section>
 
+        <!-- FAQ Section - 5 FAQs -->
         <section class="section-padding" style="background:white;">
             <div class="container">
-                <div class="section-header animate-on-scroll" style="text-align:center;max-width:640px;margin:0 auto 52px;">
-                    <span class="section-tag" style="display:inline-block;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--primary);background:#e6f0da;padding:6px 16px;border-radius:40px;margin-bottom:16px;">FAQ</span>
+                <div class="section-header animate-on-scroll">
+                    <span class="section-tag">FAQ</span>
                     <h2>Common Questions</h2>
                 </div>
-                <div class="faq-list" style="max-width:760px;margin:0 auto;">
-                    <div class="faq-item"><button class="faq-question">What is homoeopathy and how does it work? <span>▼</span></button><div class="faq-answer"><div style="padding:0 20px 16px;">Homoeopathy is a natural medical system based on "like cures like," stimulating the body's own healing ability. It treats the whole person — not just symptoms — using highly diluted, safe substances.</div></div></div>
-                    <div class="faq-item"><button class="faq-question">Is homoeopathy safe for children? <span>▼</span></button><div class="faq-answer"><div style="padding:0 20px 16px;">Absolutely. Remedies are non-toxic, gentle, and free from harmful side effects, making them ideal for infants, children, and pregnant women.</div></div></div>
-                    <div class="faq-item"><button class="faq-question">How many sessions will I need? <span>▼</span></button><div class="faq-answer"><div style="padding:0 20px 16px;">It varies by condition. Acute issues may resolve in 1–3 consultations, while chronic conditions often require longer. Dr. Gupta provides a clear plan after your first visit.</div></div></div>
-                    <div class="faq-item"><button class="faq-question">What happens during my first consultation? <span>▼</span></button><div class="faq-answer"><div style="padding:0 20px 16px;">A detailed 45–60 minute case study covering your medical history, lifestyle, emotions, and symptoms to create a personalised prescription.</div></div></div>
+                <div class="faq-container animate-on-scroll">
+                    <div class="faq-item">
+                        <button class="faq-question">What is homoeopathy and how does it work? <span class="faq-arrow">+</span></button>
+                        <div class="faq-answer"><div class="faq-answer-inner">Homoeopathy is a natural medical system based on "like cures like," stimulating the body's own healing ability. It treats the whole person using highly diluted, safe substances.</div></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">Is homoeopathy safe for children and during pregnancy? <span class="faq-arrow">+</span></button>
+                        <div class="faq-answer"><div class="faq-answer-inner">Absolutely. Remedies are non-toxic, gentle, and free from harmful side effects, making them ideal for infants, children, and pregnant women.</div></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">How many sessions will I need at Shivalik Clinic? <span class="faq-arrow">+</span></button>
+                        <div class="faq-answer"><div class="faq-answer-inner">It varies by condition. Acute issues may resolve in 1–3 consultations, while chronic conditions often require longer. Dr. Gupta provides a clear plan after your first visit.</div></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">What happens during my first consultation? <span class="faq-arrow">+</span></button>
+                        <div class="faq-answer"><div class="faq-answer-inner">A detailed 45–60 minute case study covering your medical history, lifestyle, emotions, and symptoms to create a personalised prescription.</div></div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">Are there any side effects of homoeopathic treatment? <span class="faq-arrow">+</span></button>
+                        <div class="faq-answer"><div class="faq-answer-inner">When prescribed by a qualified doctor like Dr. P Gupta, homoeopathic remedies are completely safe and free from the side effects commonly associated with conventional drugs.</div></div>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="site-footer">
         <div class="container footer-grid">
             <div>
@@ -497,9 +559,10 @@
             <div><h4 style="color:white;">Contact</h4><p>+91 7780814739<br>Gandhi Nagar, Jammu</p></div>
             <div><p style="color:rgba(255,255,255,0.5);">Designed by<br>Site Studio Jammu</p></div>
         </div>
-        <p style="text-align:center;font-size:0.8rem;margin-top:36px;opacity:0.6;">© 2026 Shivalik Homoeopathic Clinic. Medical disclaimer: Results may vary. This is not a substitute for conventional medical advice.</p>
+        <p style="text-align:center;font-size:0.8rem;margin-top:36px;opacity:0.6;">© 2026 Shivalik Homoeopathic Clinic. Medical disclaimer: Results vary. Consult a qualified practitioner.</p>
     </footer>
 
+    <!-- Mobile Sticky CTA -->
     <div class="mobile-cta-bar">
         <div class="mobile-cta-inner">
             <a href="tel:+917780814739" class="mobile-cta-btn call-btn" style="background:#e03a4e;">📞 Call Now</a>
@@ -507,8 +570,10 @@
         </div>
     </div>
 
+    <!-- Floating WhatsApp Desktop -->
     <a href="https://wa.me/917780814739" class="whatsapp-float-desktop" aria-label="Chat on WhatsApp">💬</a>
 
+    <!-- Booking Modal -->
     <div class="modal-overlay" id="bookingModal">
         <div class="modal-popup">
             <button class="modal-close" id="modalClose">✕</button>
@@ -523,7 +588,7 @@
     </div>
 
     <script>
-        // Mobile menu toggle
+        // Mobile menu
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
         hamburger.addEventListener('click', () => {
@@ -534,21 +599,24 @@
             document.getElementById('siteHeader').classList.toggle('scrolled', window.scrollY > 60);
         });
 
-        // Scroll animations
+        // Scroll animations (Improved threshold)
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-        }, { threshold: 0.18 });
+        }, { threshold: 0.2, rootMargin: "0px 0px -50px 0px" });
         document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
 
-        // FAQ accordion
+        // FAQ Accordion (5 items)
         document.querySelectorAll('.faq-question').forEach(btn => {
             btn.addEventListener('click', () => {
                 const item = btn.parentElement;
                 const isOpen = item.classList.contains('open');
+                // Close all others
                 document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+                // Toggle current
                 if (!isOpen) item.classList.add('open');
             });
         });
+        // Open the first FAQ by default
         document.querySelector('.faq-item')?.classList.add('open');
 
         // Booking modal
@@ -560,19 +628,17 @@
         document.getElementById('modalClose').addEventListener('click', () => modal.classList.remove('show'));
         modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('show'); });
 
-        // WhatsApp sender function
+        // WhatsApp sender
         function sendToWhatsApp(name, number) {
             const message = `Hello Dr. Gupta, I am ${name}. Please contact me on WhatsApp ${number} for a consultation at Shivalik Homoeopathic Clinic.`;
             window.open(`https://wa.me/917780814739?text=${encodeURIComponent(message)}`, '_blank');
         }
-
         document.getElementById('modalForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const name = document.getElementById('modalName').value.trim();
             const num = document.getElementById('modalWhatsApp').value.trim();
             if (name && num) { sendToWhatsApp(name, num); modal.classList.remove('show'); this.reset(); }
         });
-
         document.getElementById('offerForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const name = document.getElementById('offerName').value.trim();
@@ -580,7 +646,7 @@
             if (name && num) { sendToWhatsApp(name, num); this.reset(); }
         });
 
-        // Smooth scroll for anchor links
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 const target = document.querySelector(this.getAttribute('href'));
